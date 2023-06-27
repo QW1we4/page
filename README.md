@@ -1,0 +1,3 @@
+Contract Address - Polygon Testnet(Mumbai)
+Mint NFT Contract - 0x5199F5A4e556D6E0a153A024C7106FA8eD38440E
+Sale NFT Contract - 0x5cA57C0Af7c70dF4533773b36b5B9EF9eB32CfEC
