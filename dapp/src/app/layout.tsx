@@ -1,25 +1,34 @@
-import { ReactNode } from "react";
+"use client";
+
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useState,
+} from "react";
 
 import SideMenu from "@/components/SideMenu";
 import Header from "@/components/Header";
 
 import "./globals.css";
 
-export const metadata = {
-  title: "Dadenbu",
-  description: "Dadenbu is good.",
-};
+export const AppContext = createContext<any>(null);
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [account, setAccount] = useState<string>("");
+
   return (
     <html lang="en">
       <body>
-        <SideMenu>
-          <div className="flex flex-col w-full">
-            <Header />
-            {children}
-          </div>
-        </SideMenu>
+        <AppContext.Provider value={{ account, setAccount }}>
+          <SideMenu>
+            <div className="flex flex-col w-full">
+              <Header />
+              {children}
+            </div>
+          </SideMenu>
+        </AppContext.Provider>
       </body>
     </html>
   );

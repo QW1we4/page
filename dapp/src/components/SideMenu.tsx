@@ -12,12 +12,12 @@ const SideMenu: FC<SideMenuProps> = ({ children }) => {
         <div className="text-2xl font-black px-4 py-2 rounded-lg shadow-lg w-fit">
           프로젝트 다덴부
         </div>
-        <div className="grow pt-12 flex">
+        <div className="grow pt-12 flex flex-col">
           <Link href="/">
             <button className="btn-style">Dadenbu ???</button>
           </Link>
           <Link href="/mint">
-            <button className="btn-style">민팅하기</button>
+            <button className="btn-style mt-4">민팅하기</button>
           </Link>
         </div>
         <div className="text-gray-600">Created by h662.</div>

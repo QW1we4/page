@@ -32,6 +32,13 @@ contract MintNft is ERC721Enumerable, Ownable {
         return string(abi.encodePacked(metadataUri,'/', Strings.toString(_tokenId), '.json'));
     }
 
+    function getLatestNft(address _nftOwner) public view returns(uint) {
+        uint nftLength = balanceOf(_nftOwner);
+        uint latestNft = tokenOfOwnerByIndex(_nftOwner, nftLength - 1);
+
+        return latestNft;
+    }
+
     function getAllNft(address _nftOwner) public view returns(uint[] memory) {
         uint nftLength = balanceOf(_nftOwner);
 

@@ -1,15 +1,39 @@
 "use client";
 
-import { useMetamask } from "@/hooks";
-import { FC, useState } from "react";
+import { AppContext } from "@/app/layout";
+import { CHAIN_ID_MUMBAI, ethereum, web3 } from "@/web3/web3.config";
+import { FC, useContext, useState } from "react";
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { account, setAccount, getAccount } = useMetamask();
+  const { account, setAccount } = useContext(AppContext);
 
-  const onClickLogIn = () => {
-    getAccount();
+  const onClickLogIn = async () => {
+    try {
+      const accounts: any = await ethereum?.request({
+        method: "eth_requestAccounts",
+        params: [],
+      });
+
+      setAccount(accounts[0]);
+
+      if (parseInt(ethereum?.networkVersion as string) !== CHAIN_ID_MUMBAI) {
+        await ethereum?.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainName: "Mumbai",
+              chainId: web3.utils.numberToHex(CHAIN_ID_MUMBAI),
+              nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
+              rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+            },
+          ],
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   const onClickLogOut = () => {
     setAccount("");
