@@ -4,7 +4,7 @@ import MINT_NFT_ABI from "@/web3/mintNftAbi.json";
 import SALE_NFT_ABI from "@/web3/saleNftAbi.json";
 
 const MINT_NFT_ADDRESS = "0xF4210B594c7A0ddDe6Efde8034CDCb64C5975eE5";
-const SALE_NFT_ADDRESS = "0xd4789afB7c517a7cA125f4A89fAa0f6e89fC80EA";
+export const SALE_NFT_ADDRESS = "0xd4789afB7c517a7cA125f4A89fAa0f6e89fC80EA";
 
 export const CHAIN_ID_MUMBAI = 80001;
 
