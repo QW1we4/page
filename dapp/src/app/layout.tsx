@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useState,
-} from "react";
+import { ReactNode, createContext, useState } from "react";
 
 import SideMenu from "@/components/SideMenu";
 import Header from "@/components/Header";

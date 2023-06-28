@@ -26,8 +26,7 @@ export const saleNftContract = new web3.eth.Contract(
 export const PINATA_URL =
   "https://olbm.mypinata.cloud/ipfs/QmU52T5t4bXtoUqQYStgx39DdXy3gLQq7KDuF1F9g3E9Qy";
 
-export interface INft {
-  tokenId: number;
+export interface INftMetadata {
   name: string;
   description: string;
   image: string;
