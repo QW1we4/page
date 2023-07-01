@@ -72,6 +72,10 @@ const MyNft: NextPage = () => {
     getMyNfts();
   }, [account]);
 
+  useEffect(() => {
+    console.log(tokenIds);
+  }, [tokenIds]);
+
   return (
     <div className="px-8 pt-16">
       <div className="flex items-center">
@@ -93,9 +97,11 @@ const MyNft: NextPage = () => {
         </>
       </div>
       <div className="mt-8">
-        {tokenIds?.reverse().map((v, i) => {
-          return <MyNftCard index={i} tokenId={v} />;
-        })}
+        {tokenIds?.length === 0
+          ? "내 다덴부가 없습니다. '민팅하기'에서 나만의 다덴부를 획득하세요!"
+          : tokenIds?.reverse().map((v, i) => {
+              return <MyNftCard index={i} tokenId={v} />;
+            })}
       </div>
     </div>
   );

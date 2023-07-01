@@ -12,7 +12,7 @@ import NftCard from "./NftCard";
 import { saleNftContract, web3 } from "@/lib/web3.config";
 import { AppContext } from "@/app/layout";
 
-interface MyNftCardProps {
+export interface MyNftCardProps {
   index: number;
   tokenId: number;
 }
@@ -75,7 +75,7 @@ const MyNftCard: FC<MyNftCardProps> = ({ index, tokenId }) => {
         .cancelSaleNft(tokenId)
         .send({ from: account });
 
-      if (Number(response.status)) {
+      if (Number(response.status) === 1) {
         setCurrnetPrice(0);
       }
     } catch (error) {
