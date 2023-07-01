@@ -1,6 +1,6 @@
 "use client";
 
-import { INftMetadata, PINATA_URL } from "@/web3/web3.config";
+import { INftMetadata, PINATA_URL } from "@/lib/web3.config";
 import axios from "axios";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
@@ -62,7 +62,7 @@ const NftCard: FC<NftCardProps> = ({ tokenId }) => {
           </div>
         </div>
       ) : (
-        <div>로딩중입니다...</div>
+        <div className="mb-40">로딩중입니다...</div>
       )}
     </>
   );

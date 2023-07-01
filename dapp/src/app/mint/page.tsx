@@ -2,7 +2,7 @@
 
 import { NextPage } from "next";
 import { useContext, useState } from "react";
-import { mintNftContract } from "@/web3/web3.config";
+import { mintNftContract } from "@/lib/web3.config";
 import { AppContext } from "../layout";
 import NftCard from "@/components/NftCard";
 

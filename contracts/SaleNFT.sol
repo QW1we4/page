@@ -29,6 +29,17 @@ contract SaleNft is Ownable {
         onSaleNft.push(_tokenId);
     }
 
+    function cancelSaleNft(uint _tokenId) public {
+        address nftOwner = mintNftContract.ownerOf(_tokenId);
+
+        require(nftOwner == msg.sender);
+        require(nftPrices[_tokenId] > 0);
+
+        nftPrices[_tokenId] = 0;
+
+        arrangeOnSaleNft();
+    }
+
     function purchaseNft(uint _tokenId)public payable {
         uint nftPrice = nftPrices[_tokenId];
         address tokenOwner = mintNftContract.ownerOf(_tokenId);
@@ -43,13 +54,7 @@ contract SaleNft is Ownable {
         mintNftContract.safeTransferFrom(tokenOwner, msg.sender, _tokenId);
         nftPrices[_tokenId] = 0;
 
-        for(uint i = 0; i < onSaleNft.length; i++) {
-            if(nftPrices[onSaleNft[i]] == 0) {
-                onSaleNft[i] = onSaleNft[onSaleNft.length - 1];
-
-                onSaleNft.pop();
-            }
-        }
+        arrangeOnSaleNft();
     }
 
     function getNftPrice(uint _tokenId) public view returns(uint) {
@@ -58,5 +63,15 @@ contract SaleNft is Ownable {
 
     function getOnSaleNft() public view returns(uint[] memory) {
         return onSaleNft;
+    }
+
+    function arrangeOnSaleNft() public {
+        for(uint i = 0; i < onSaleNft.length; i++) {
+            if(nftPrices[onSaleNft[i]] == 0) {
+                onSaleNft[i] = onSaleNft[onSaleNft.length - 1];
+
+                onSaleNft.pop();
+            }
+        }
     }
 }

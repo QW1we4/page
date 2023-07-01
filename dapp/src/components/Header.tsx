@@ -1,7 +1,7 @@
 "use client";
 
 import { AppContext } from "@/app/layout";
-import { CHAIN_ID_MUMBAI, ethereum, web3 } from "@/web3/web3.config";
+import { CHAIN_ID_MUMBAI, ethereum, web3 } from "@/lib/web3.config";
 import { FC, useContext, useState } from "react";
 
 const Header: FC = () => {
@@ -18,8 +18,8 @@ const Header: FC = () => {
 
       setAccount(accounts[0]);
 
-      if (parseInt(ethereum?.networkVersion as string) !== CHAIN_ID_MUMBAI) {
-        await ethereum?.request({
+      if (parseInt(ethereum.networkVersion) !== CHAIN_ID_MUMBAI) {
+        await ethereum.request({
           method: "wallet_addEthereumChain",
           params: [
             {
