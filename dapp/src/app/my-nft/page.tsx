@@ -72,10 +72,6 @@ const MyNft: NextPage = () => {
     getMyNfts();
   }, [account]);
 
-  useEffect(() => {
-    console.log(tokenIds);
-  }, [tokenIds]);
-
   return (
     <div className="px-8 pt-16">
       <div className="flex items-center">

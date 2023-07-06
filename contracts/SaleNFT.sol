@@ -16,7 +16,6 @@ contract SaleNft is Ownable {
 
     uint[] public onSaleNft;
 
-
     function setSaleNft(uint _tokenId, uint _price) public {
         address nftOwner = mintNftContract.ownerOf(_tokenId);
 
