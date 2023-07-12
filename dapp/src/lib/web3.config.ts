@@ -3,8 +3,8 @@ import { MetaMaskSDK } from "@metamask/sdk";
 import MINT_NFT_ABI from "@/lib/mintNftAbi.json";
 import SALE_NFT_ABI from "@/lib/saleNftAbi.json";
 
-const MINT_NFT_ADDRESS = "0xF4210B594c7A0ddDe6Efde8034CDCb64C5975eE5";
-export const SALE_NFT_ADDRESS = "0xB98A140f66d35a86575011Cd53736450848C1ADc";
+const MINT_NFT_ADDRESS = "0xE07675529794B77B193a42eb1375b6d8b4fAeA87";
+export const SALE_NFT_ADDRESS = "0xb1A0388ee5BbB33ED1Bc08fFB30E1Dd0E59192b8";
 
 export const CHAIN_ID_MUMBAI = 80001;
 
