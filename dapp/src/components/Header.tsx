@@ -55,13 +55,13 @@ const Header: FC = () => {
               className="absolute top-0 right-0 bg-white px-2 py-1 btn-style"
               onClick={onClickLogOut}
             >
-              로그아웃
+              로그아웃(log out)
             </button>
           )}
         </div>
       ) : (
         <button className="btn-style" onClick={onClickLogIn}>
-          지갑로그인
+          지갑로그인(wallet login)
         </button>
       )}
     </header>

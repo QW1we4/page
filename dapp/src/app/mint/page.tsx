@@ -39,10 +39,10 @@ const Mint: NextPage = () => {
   return (
     <div className="px-8 pt-16">
       <div className="flex items-center">
-        지금 바로 나만의 다덴부를 획득해 보세요
+        지금 바로 나만의 다덴부를 획득해 보세요 (Get your own Dadenbu right now)
         {account ? (
           <button className="btn-style ml-2 font-bold" onClick={onClickMint}>
-            민팅하기
+            민팅하기(Minting)
           </button>
         ) : (
           <div className="flex items-center">
@@ -50,19 +50,21 @@ const Mint: NextPage = () => {
               className="line-through btn-style ml-2 font-bold"
               onClick={onClickMint}
             >
-              민팅하기
+              민팅하기(Minting)
             </button>
             <div className="text-xs font-normal ml-2">
-              (지갑로그인을 해주세요!)
+              (지갑로그인을 해주세요! (Please log in to your wallet))
             </div>
           </div>
         )}
       </div>
       <div className="mt-8">
-        {isLoading && <div>로딩중입니다...</div>}
+        {isLoading && <div>로딩중입니다... ( loading...)</div>}
         {tokenId && (
           <div>
-            <div>새로운 다덴부를 획득했습니다!!!</div>
+            <div>
+              새로운 다덴부를 획득했습니다!!! (new Dadenbu has been created!!!)
+            </div>
             <NftCard tokenId={tokenId} />
           </div>
         )}
